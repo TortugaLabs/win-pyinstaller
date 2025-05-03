@@ -34,9 +34,11 @@ bash|sh)
   [ "$#" -eq 0 ] && set - -il
   exec "$shell" "$@"
   exit $?
+  ;;
 help)
   pyinstaller -h
   exit $?
+  ;;
 esac
 
 # Install requirements (if they exist)
@@ -48,4 +50,4 @@ fi
 ( set -x
   pyinstaller --clean -y --dist ./dist --specpath ./dist --workpath /tmp --upx-dir "C:\\" "$@"
 )
-chown -R --reference=. ./dist *.spec
+chown -R --reference=. ./dist
