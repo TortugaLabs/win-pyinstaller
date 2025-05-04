@@ -22,6 +22,7 @@ if [ $# -eq 0 ] ; then
   exit
 fi
 
+zero_args=false
 case "$1" in
 cmd|CMD)
   shift
@@ -39,6 +40,9 @@ help)
   pyinstaller -h
   exit $?
   ;;
+--)
+  zero_args=true
+  ;;
 esac
 
 # Install requirements (if they exist)
@@ -47,7 +51,9 @@ if [ -f requirements.txt ]; then
 fi
 
 # Build with pyinstaller
-( set -x
-  pyinstaller --clean -y --dist ./dist --specpath ./dist --workpath /tmp --upx-dir "C:\\" "$@"
-)
+if $zero_args ; then
+  ( set -x ; pyinstaller "$@" )
+else
+  ( set -x ; pyinstaller --clean -y --dist ./dist --specpath ./dist --workpath /tmp --upx-dir "C:\\" "$@" )
+fi
 chown -R --reference=. ./dist
