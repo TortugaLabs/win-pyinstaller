@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# This script is used to tag the current repo
+#
+set -o pipefail 2>/dev/null || :
+set -euf
+
+. $(dirname "$0")/version.mk
+tag="${PYINSTALLER_VERSION}-py${PYTHON_VERSION}-upx${UPX_VERSION}"
+
+if [ $# -eq 0 ] ; then
+  cat <<-EOF
+	This script will tag the current repo for release.
+
+	Usage: $0 [tagname]
+
+	Tag version: "$tag-tagname"
+	EOF
+  exit 0
+fi
+
+#~ git tag -a "$tag-$1" -m "$tag-$1"
+#~ git push --tags
+
