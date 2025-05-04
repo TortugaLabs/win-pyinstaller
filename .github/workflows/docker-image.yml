@@ -30,7 +30,7 @@ jobs:
       with:
         package-name: "${{ github.event.repository.name }}"
         package-type: 'container'
-        min-versions-to-keep: 3
+        min-versions-to-keep: 9
     - name: checkout repository
       uses: actions/checkout@v4
     - name: Log in to the Container registry
