@@ -19,6 +19,6 @@ if [ $# -eq 0 ] ; then
   exit 0
 fi
 
-#~ git tag -a "$tag-$1" -m "$tag-$1"
-#~ git push --tags
+git tag -a "$tag-$1" -m "$tag-$1"
+git push --tags
 

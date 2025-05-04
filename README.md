@@ -63,8 +63,5 @@ following sub-commands are available:
   console window if the program owns the console window (i.e., was not launched from
   an existing console window)
 
-# TODO
-
-- [ ] create github action
 
 
