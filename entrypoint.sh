@@ -10,6 +10,7 @@ if [ $# -eq 0 ] ; then
   python -V
   pyinstaller --version
 
+
   cat <<-_EOF_
 	Options:
 
@@ -18,6 +19,13 @@ if [ $# -eq 0 ] ; then
 	help : Show pyinstaller help
 
 	Otherwise, provide pyinstaller options
+
+	Recommended options:
+
+	Docker CLI:
+	  cache_path=/wine/drive_c/users/root/AppData/Local/pip/cache
+	  -v "\$(pwd)/cache":\$cache_path \
+	
 	_EOF_
   exit
 fi

@@ -3,7 +3,11 @@
 # Run container
 #
 image=ghcr.io/tortugalabs/win-pyinstaller
+cache_path=/wine/drive_c/users/root/AppData/Local/pip/cache
+
+mkdir -pv "$(pwd)/cache"
 exec docker run --rm -it \
+	-v "$(pwd)/cache":$cache_path \
 	-v "$(pwd)":/src/ \
 	"$image" \
 	"$@"

@@ -17,7 +17,7 @@ help:
 	@echo "Options:"
 	@echo "- build : build image"
 	@echo "- clean: clean up folder"
-	@echo "- run : Run image.  Use ARGS="...opts..."
+	@echo "- run : Run image.  Use ARGS=\"...opts...\""
 
 #~ 	@echo "- start : start container"
 #~ 	@echo "- stop : stop container"
